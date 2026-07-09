@@ -17,16 +17,21 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 18px;
+}
+
 body {
     font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     background-color: var(--paper);
     color: var(--ink);
-    padding-top: var(--header-h);
 }
 
 header {
-    background-color: var(--paper);
-    border-bottom: 1px solid var(--line);
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     position: fixed;
     top: 0;
     left: 0;
@@ -46,7 +51,7 @@ header {
 }
 
 .logo {
-    color: var(--ink);
+    color: #FFFFFF;
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
@@ -60,20 +65,21 @@ header {
 }
 
 .nav-menu li a {
-    color: var(--stone);
+    color: #FFFFFF;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-}
-
-.nav-menu li a:hover {
-    color: var(--tangerine);
+    font-size: 20px;
 }
 
 .hero {
-    background-color: var(--paper);
+    background:
+        linear-gradient(90deg, rgba(23, 18, 15, 0.8) 60%, rgba(23, 18, 15, 0.2)),
+        url("../img/hero.jpg") no-repeat right -100px/100%;
     border-bottom: 1px solid var(--line);
-    padding: 6rem 1.5rem;
+    padding-top: calc(9rem - 50px + var(--header-h));
+    padding-bottom: calc(9rem - 50px);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    color: var(--paper);
 }
 
 .hero-inner {
@@ -121,70 +127,51 @@ section ol ul {
 
 .hero-flex {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .hero-headline-group {
-    flex: 1.2;
+    width: 100%;
 }
 
 .hero-headline {
     display: flex;
     flex-direction: column;
-    font-weight: 800;
-    font-size: clamp(2rem, 4.2vw, 3.25rem);
-    line-height: 1.2;
+    font-weight: 600;
+    font-size: clamp(32px, 4.2vw, 52px);
+    line-height: 1.6;
     letter-spacing: -0.02em;
+    margin-top: -44px;
 }
 
 .hero-headline span {
-    color: var(--ink);
+    color: #FFFFFF;
+}
+
+.hero-headline span:not(.accent) {
+    font-size: 64px;
 }
 
 .hero-headline span.accent {
-    color: var(--tangerine);
-}
-
-.hero-actions {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: opacity 0.2s ease;
-}
-
-.btn:hover {
-    opacity: 0.85;
-}
-
-.btn-primary {
-    background-color: var(--tangerine);
-    color: var(--paper);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border-color: var(--line);
-    color: var(--ink);
+    color: #8B5CF6;
+    font-size: clamp(21.33px, 2.8vw, 34.67px);
 }
 
 .hero-desc {
-    flex: 1;
-    color: var(--stone);
-    font-size: 1rem;
+    max-width: 640px;
+    color: #A78BFA;
+    font-size: 19.2px;
+    font-weight: 100;
     line-height: 1.8;
     margin-top: 0.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color:rgba(255.255.255,0.5);
+    border-radius: 18px;
+    padding: 1.5rem 2rem;
+    border:1px solid rgba(255,255,255,0.3);
 }
 
 .card-grid {
