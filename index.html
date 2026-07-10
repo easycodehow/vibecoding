@@ -13,9 +13,9 @@
             <a href="#" class="logo">VIBECODING</a>
             <ul class="nav-menu">
                 <li><a href="#intro">소개</a></li>
-                <li><a href="#curriculum">커리큘럼</a></li>
-                <li><a href="#techstack">기술스택</a></li>
+                <li><a href="#feature">특징</a></li>
                 <li><a href="#effect">기대효과</a></li>
+                <li><a href="#limitation">한계점</a></li>
                 <li><a href="#community">커뮤니티</a></li>
             </ul>
         </nav>
@@ -47,78 +47,127 @@
                 <div class="card">
                     <h3>바이브코딩이란?</h3>
                     <p>어원 "Vibe"(분위기, 감각) + "Coding" = 직관적이고 자연스러운 흐름으로 코딩하는 방식</p>
-                </div>
-                <div class="card">
-                    <h3>일반 코딩과의 차이점</h3>
-                    <ul>
-                        <li>일반 코딩: 문법 암기 → 코드 작성 → 디버깅 → 결과 확인 (긴 학습 곡선)</li>
-                        <li>바이브코딩: AI와 대화 → 즉각적 구현 → 빠른 수정 → 실시간 결과 확인 (짧은 학습 곡선)</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>전망</h3>
-                    <ul>
-                        <li>AI 보조 개발이 업계 표준으로 자리잡는 추세</li>
-                        <li>개발자의 역할이 "코드 작성자"에서 "프로젝트 기획자·관리자"로 진화</li>
-                        <li>비전공자도 실무급 프로젝트 구현 가능한 시대 도래</li>
-                        <li>빠른 프로토타이핑과 개발에 최적화된 방법론</li>
-                    </ul>
+                    <p>문법을 외워 코드를 짜는 대신 원하는 것을 자연어로 설명하면 AI가 코드를 생성하는 개발 방식을 가리킵니다.</p>
                 </div>
             </div>
         </section>
 
-        <section id="curriculum">
-            <h2>커리큘럼</h2>
-
-            <div class="card-grid card-grid-2">
-                <div class="card">
-                    <h3>기초 과정</h3>
-                    <ul>
-                        <li>포트폴리오 웹사이트 제작</li>
-                        <li>로그인/회원가입 기능 구현</li>
-                        <li>게시판 CRUD 기능 개발</li>
-                        <li>실무 배포 프로세스 (Vercel)</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>심화 과정</h3>
-                    <ul>
-                        <li>React Native + Expo를 활용한 모바일 앱 개발</li>
-                        <li>SNS 기능 구현</li>
-                        <li>카메라 연동</li>
-                        <li>앱스토어 배포</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="techstack">
-            <h2>기술스택</h2>
-        </section>
-
-        <section id="effect">
-            <h2>실현가능한 기대효과</h2>
+        <section id="feature">
+            <h2>특징</h2>
 
             <div class="grouped-box">
                 <div class="card-grid">
                     <div class="card">
-                        <h4>프로젝트<br>전체 흐름 이해</h4>
-                        <p>기획부터 배포까지 경험하며 기술 간 연결 구조를 이해합니다.</p>
+                        <h4>자연어 기반 개발</h4>
+                        <p>문법이 아닌 일상 언어로 "이런 기능이 필요해"라고 설명하면 AI가 코드로 변환합니다.</p>
                     </div>
                     <div class="card">
-                        <h4>AI 도구 활용 능력</h4>
-                        <p>Claude Code와 협업하며 에러 해결과 빠른 프로토타이핑 능력을 키웁니다.</p>
+                        <h4>반복적 대화<br>(Iteration)</h4>
+                        <p>한 번에 완성되지 않습니다. 결과를 보고 "이 부분은 이렇게 바꿔줘"라고 계속 다듬어가는 방식입니다.</p>
                     </div>
                     <div class="card">
-                        <h4>시간 대비 높은 완성도</h4>
-                        <p>전통적 학습 대비 1/5의 시간으로 실무급 프로젝트를 완성합니다.</p>
+                        <h4>즉각적 피드백 루프</h4>
+                        <p>코드를 작성하고 한참 뒤에 확인하는 게 아니라, 결과를 바로 실행해보며 방향을 조정합니다.</p>
                     </div>
                     <div class="card">
-                        <h4>실전 포트폴리오 확보</h4>
-                        <p>취업과 이직에 활용 가능한 실제 배포 웹사이트를 완성합니다.</p>
+                        <h4>판단과 확인 중심<br>(HITL)</h4>
+                        <p>개발자의 역할이 "코드를 직접 짜는 것"에서 "AI가 만든 것이 맞는지 확인하고 판단하는 것"으로 이동합니다.</p>
                     </div>
                 </div>
             </div>
+
+            <h3>일반 코딩과의 차이점</h3>
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>일반 코딩</th>
+                            <th>바이브코딩</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>시작점</td>
+                            <td>문법 학습, 알고리즘 설계</td>
+                            <td>자연어로 원하는 결과 설명</td>
+                        </tr>
+                        <tr>
+                            <td>개발자 역할</td>
+                            <td>직접 로직 작성</td>
+                            <td>방향 제시 + 결과 검토</td>
+                        </tr>
+                        <tr>
+                            <td>속도</td>
+                            <td>기능 하나하나 수기 구현</td>
+                            <td>프롬프트 한 번에 초안 생성</td>
+                        </tr>
+                        <tr>
+                            <td>필요 역량</td>
+                            <td>프로그래밍 언어 숙련도</td>
+                            <td>요구사항 정의력 + 판단력</td>
+                        </tr>
+                        <tr>
+                            <td>결과 확인</td>
+                            <td>코드 작성 → 테스트 → 디버깅</td>
+                            <td>즉시 실행 → 대화로 수정</td>
+                        </tr>
+                        <tr>
+                            <td>리스크 지점</td>
+                            <td>개발자의 실수</td>
+                            <td>AI 결과물에 대한 검증 부족</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flow-diagram">
+                <span>아이디어 정의</span>
+                <span class="flow-arrow">→</span>
+                <span>자연어 프롬프트</span>
+                <span class="flow-arrow">→</span>
+                <span>AI 코드 생성</span>
+                <span class="flow-arrow">→</span>
+                <span>실행 결과 확인</span>
+                <span class="flow-arrow">→</span>
+                <span>피드백 대화</span>
+                <span class="flow-arrow">→</span>
+                <span>반복 개선</span>
+                <span class="flow-arrow">→</span>
+                <span>배포</span>
+            </div>
+        </section>
+
+        <section id="effect">
+            <h2>기대효과</h2>
+
+            <div class="card-grid effect-grid">
+                <div class="card effect-card">
+                    <h4>프로젝트 전체 흐름 이해</h4>
+                    <p>기획부터 배포까지 경험하며 기술 간 연결 구조를 이해합니다.</p>
+                </div>
+                <div class="card effect-card">
+                    <h4>AI 도구 활용 능력</h4>
+                    <p>Claude Code와 협업하며 에러 해결과 빠른 프로토타이핑 능력을 키웁니다.</p>
+                </div>
+                <div class="card effect-card">
+                    <h4>시간 대비 높은 완성도</h4>
+                    <p>전통적 학습 대비 1/5의 시간으로 실무급 프로젝트를 완성합니다.</p>
+                </div>
+                <div class="card effect-card">
+                    <h4>실전 포트폴리오 확보</h4>
+                    <p>취업과 이직에 활용 가능한 실제 배포 웹사이트를 완성합니다.</p>
+                </div>
+            </div>
+
+            <h3>전망</h3>
+            <ul>
+                <li>AI 보조 개발이 업계 표준으로 자리잡는 추세 (2026년 신규 소프트웨어 코드의 60%가 AI로 생성될 것이라는 시장 전망도 있음)</li>
+                <li>개발자의 역할이 "코드 작성자"에서 "프로젝트 기획자·관리자"로 진화</li>
+                <li>비전공자도 실무급 프로젝트 구현 가능한 시대 도래</li>
+                <li>빠른 프로토타이핑과 개발에 최적화된 방법론</li>
+                <li>다만 "빌드 속도"만큼 "검증 속도"도 함께 높아져야 한다는 목소리도 커지는 중 — 만들기만 빠른 것이 아니라, 맞게 만들었는지 확인하는 역량이 함께 요구되는 방향으로 진화하고 있음</li>
+            </ul>
         </section>
 
         <section id="limitation">
@@ -143,6 +192,14 @@
                     </div>
                 </div>
             </div>
+
+            <h3>검증 없는 배포의 위험 ("바이브 부채")</h3>
+            <ul>
+                <li>실제 프로젝트에서 인증·결제·확장성·보안 문제를 겪는 것으로 나타남</li>
+                <li>"바이브코딩은 AI 지원 엔지니어링이 아니다"라며, 프로토타이핑 도구로 이해해야 한다는 주장이 제기됨</li>
+                <li>검증 없이 빠르게 쌓이는 기술 부채("vibe debt")는 나중에 더 큰 비용(리팩토링, 재구축)으로 돌아올 수 있음</li>
+                <li>→ AI 결과물에 대한 인간의 검증(HITL)이 필수</li>
+            </ul>
         </section>
 
         <section id="community">

@@ -151,6 +151,7 @@ section ul,
 section ol {
     padding-left: 1.5rem;
     line-height: 1.8;
+    font-size: 20px;
 }
 
 section ol > li {
@@ -248,7 +249,7 @@ section ol ul {
 }
 
 .card h4 + p {
-    font-size: 17px;
+    font-size: 20px;
     color: rgba(45, 27, 78, 1);
 }
 
@@ -338,4 +339,109 @@ section .card-grid + h3 {
 .grouped-box .card:first-child {
     border-left: none;
     padding-left: 0;
+}
+
+#feature .grouped-box + h3,
+#limitation .grouped-box + h3 {
+    margin-top: 2.5rem;
+}
+
+#feature .grouped-box .card,
+#limitation .grouped-box .card {
+    justify-content: flex-start;
+    padding-top: 1.75rem;
+}
+
+#feature .grouped-box .card h4,
+#limitation .grouped-box .card h4 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 1.3;
+    min-height: 2.6em;
+}
+
+.effect-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.effect-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
+    padding: 2rem 2.5rem;
+    border-left: 4px solid #C2447A;
+    box-shadow: 0 4px 14px rgba(36, 30, 26, 0.06);
+}
+
+.effect-card h4,
+.effect-card p {
+    text-align: left;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid #EDE0E5;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid #EDE0E5;
+    white-space: nowrap;
+}
+
+.compare-table thead th {
+    background-color: var(--paper);
+    color: #2D1B4E;
+    font-weight: 700;
+}
+
+.compare-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.compare-table tbody td:first-child {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.compare-table tbody td:not(:first-child) {
+    color: var(--stone);
+}
+
+.flow-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #EDE0E5;
+    border-radius: 12px;
+    font-size: 20px;
+    color: var(--ink);
+}
+
+.flow-diagram span:not(.flow-arrow) {
+    padding: 0.4rem 0.9rem;
+    background-color: var(--paper);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.flow-arrow {
+    color: #8B5CF6;
+    font-weight: 700;
 }
