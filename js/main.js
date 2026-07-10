@@ -20,6 +20,18 @@ function smoothScrollTo(targetY, duration) {
     requestAnimationFrame(step);
 }
 
+const header = document.querySelector('header');
+const hero = document.querySelector('.hero');
+
+function updateHeaderBackground() {
+    const threshold = hero.offsetHeight - header.offsetHeight;
+    header.classList.toggle('scrolled', window.pageYOffset >= threshold);
+}
+
+window.addEventListener('scroll', updateHeaderBackground);
+window.addEventListener('resize', updateHeaderBackground);
+updateHeaderBackground();
+
 document.querySelectorAll('.nav-menu a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));

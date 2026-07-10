@@ -5,7 +5,7 @@
     --ember: #D9600C;
     --gold: #FDE0A0;
     --paper: #FBF6EF;
-    --stone: #8F8177;
+    --stone: #4A4645;
     --line: rgba(36, 30, 26, 0.12);
     --header-h: 4.5rem;
     --content-width: 1280px;
@@ -29,7 +29,7 @@ body {
 
 header {
     background-color: transparent;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     position: fixed;
@@ -38,6 +38,13 @@ header {
     width: 100%;
     height: var(--header-h);
     z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: rgba(45, 27, 78, 0.35);
+    backdrop-filter: blur(7px);
+    border-bottom: 1px solid rgba(45, 27, 78, 0.4);
 }
 
 .navbar {
@@ -56,6 +63,11 @@ header {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+header.scrolled .logo {
+    color: #FFFFFF;
 }
 
 .nav-menu {
@@ -68,6 +80,19 @@ header {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #8B5CF6;
+}
+
+header.scrolled .nav-menu li a {
+    color: #FFFFFF;
+}
+
+header.scrolled .nav-menu li a:hover {
+    color: #8B5CF6;
 }
 
 .hero {
@@ -95,14 +120,15 @@ main {
 
 section {
     padding: 4rem 0;
-    border-bottom: 1px solid var(--line);
     scroll-margin-top: var(--header-h);
 }
 
 section h2 {
-    font-size: 2rem;
+    font-size: 30px;
     margin-bottom: 1.5rem;
     color: var(--ink);
+    padding-left: 14px;
+    border-left: 5px solid #C2447A;
 }
 
 section h3 {
@@ -186,29 +212,85 @@ section ol ul {
 
 .card {
     background-color: #fff;
-    border: 1px solid var(--line);
+    border: 1px solid #EDE0E5;
     border-radius: 12px;
     padding: 1.5rem;
 }
 
-.card h3,
-.card h4 {
-    font-size: 1.1rem;
+.card h3 {
+    font-size: 22px;
     margin: 0 0 0.75rem;
-    color: var(--ink);
+    color: #2D2A28;
+}
+
+.card h4 {
+    font-size: 24px;
+    margin: 0 0 0.75rem;
+    color: #2D1B4E;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.card h4 + p {
+    font-size: 17px;
+    color: rgba(45, 27, 78, 1);
 }
 
 .card p {
+    font-size: 20px;
     color: var(--stone);
-    line-height: 1.7;
+    line-height: 1.4;
 }
 
 .card ul {
+    font-size: 20px;
     padding-left: 1.25rem;
-    line-height: 1.7;
+    line-height: 1.4;
     color: var(--stone);
+}
+
+.card ul li {
+    margin-bottom: 16px;
+}
+
+.card ul li:last-child {
+    margin-bottom: 0;
 }
 
 section .card-grid + h3 {
     margin-top: 2.5rem;
+}
+
+.grouped-box {
+    background-color: #fff;
+    border: 1px solid #EDE0E5;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+}
+
+.grouped-box h3 {
+    margin-top: 0;
+}
+
+.grouped-box .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grouped-box .card {
+    flex: 1;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0 1.5rem;
+    border-left: 1px solid #EDE0E5;
+}
+
+.grouped-box .card:first-child {
+    border-left: none;
+    padding-left: 0;
 }
