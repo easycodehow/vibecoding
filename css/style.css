@@ -124,11 +124,21 @@ section {
 }
 
 section h2 {
+    position: relative;
     font-size: 30px;
     margin-bottom: 1.5rem;
     color: var(--ink);
     padding-left: 14px;
-    border-left: 5px solid #C2447A;
+}
+
+section h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4.5px;
+    bottom: 4.5px;
+    width: 5px;
+    background: #C2447A;
 }
 
 section h3 {
@@ -180,6 +190,12 @@ section ol ul {
     font-size: 64px;
 }
 
+.hero-headline span.hero-quote {
+    font-family: "Galmuri11", sans-serif;
+    font-weight: 400;
+    -webkit-text-stroke: 0.5px currentColor;
+}
+
 .hero-headline span.accent {
     color: #8B5CF6;
     font-size: clamp(21.33px, 2.8vw, 34.67px);
@@ -189,7 +205,7 @@ section ol ul {
     max-width: 640px;
     color: #A78BFA;
     font-size: 19.2px;
-    font-weight: 100;
+    font-weight: 200;
     line-height: 1.8;
     margin-top: 0.5rem;
     backdrop-filter: blur(12px);
@@ -259,6 +275,35 @@ section ol ul {
 
 section .card-grid + h3 {
     margin-top: 2.5rem;
+}
+
+.site-footer {
+    background-color: var(--ink-deep);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .grouped-box {
