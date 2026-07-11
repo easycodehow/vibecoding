@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 | 바이브코딩</title>
+    <link href="font/Galmuri-v2.40.3/galmuri.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="board/css/board.css">
+</head>
+<body>
+    <header class="header-solid">
+        <nav class="navbar">
+            <a href="index.html" class="logo">VIBECODING</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#intro">소개</a></li>
+                <li><a href="index.html#feature">특징</a></li>
+                <li><a href="index.html#effect">기대효과</a></li>
+                <li><a href="index.html#limitation">한계점</a></li>
+                <li><a href="board/board.html" class="active">커뮤니티</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="board-main">
+        <div class="board-container board-form-container narrow">
+            <h2>로그인</h2>
+
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">이메일</label>
+                    <input type="email" id="login-email" placeholder="이메일을 입력하세요">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">비밀번호</label>
+                    <input type="password" id="login-password" placeholder="비밀번호를 입력하세요">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-full">로그인</button>
+                </div>
+
+                <p class="auth-switch">계정이 없으신가요? <a href="signup.html">회원가입</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">VIBECODING</a>
+            <p class="footer-copyright">&copy; 2026 EASYCODE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

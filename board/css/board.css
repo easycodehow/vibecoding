@@ -1,0 +1,453 @@
+/* ==========================================================================
+   게시판(커뮤니티) 전용 스타일
+   - style.css의 색상 변수(--ink, --paper, --stone 등)와 카드/테이블 스타일을 재사용
+   - hero가 없는 페이지이므로 헤더는 투명 대신 고정 배경을 사용
+   ========================================================================== */
+
+/* 헤더 (hero 없는 페이지용 고정 배경) */
+.header-solid {
+    background-color: #2D1B4E;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-solid .nav-menu li a.active {
+    color: #8B5CF6;
+}
+
+/* ==========================================================================
+   공통 레이아웃
+   ========================================================================== */
+.board-main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: calc(var(--header-h) + 3rem) 1.5rem 5rem;
+}
+
+.board-container h2 {
+    position: relative;
+    font-size: 30px;
+    margin-bottom: 1.5rem;
+    padding-left: 14px;
+    color: var(--ink);
+}
+
+.board-container h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4.5px;
+    bottom: 4.5px;
+    width: 5px;
+    background: #C2447A;
+}
+
+.board-form-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.board-form-container.narrow {
+    max-width: 420px;
+}
+
+/* ==========================================================================
+   공통 버튼 / 폼 요소
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #8B5CF6;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #7C3AED;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    border-color: #EDE0E5;
+    color: var(--ink);
+}
+
+.btn-secondary:hover {
+    background-color: #FBF6EF;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: #EDE0E5;
+    color: var(--stone);
+}
+
+.btn-outline:hover {
+    background-color: #fff;
+}
+
+.btn-danger {
+    background-color: #fff;
+    border-color: #EDE0E5;
+    color: #C2447A;
+}
+
+.btn-danger:hover {
+    background-color: #FBF6EF;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--stone);
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-text:hover {
+    color: #8B5CF6;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #EDE0E5;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--ink);
+    background-color: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8B5CF6;
+}
+
+.form-group textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   게시글 목록 (board.html)
+   ========================================================================== */
+.board-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    max-width: 320px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: 1px solid #EDE0E5;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #8B5CF6;
+}
+
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.board-table thead th {
+    border-bottom: 2px solid #2D1B4E;
+    padding: 0.9rem 0.75rem;
+    text-align: center;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.board-table tbody td {
+    border-bottom: 1px solid #EDE0E5;
+    padding: 0.9rem 0.75rem;
+    text-align: center;
+    color: var(--stone);
+}
+
+.board-table tbody tr:hover {
+    background-color: #FBF6EF;
+}
+
+.board-table .col-title {
+    text-align: left;
+}
+
+.board-table td.col-title {
+    text-align: left;
+}
+
+.board-table td.col-title a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.board-table td.col-title a:hover {
+    color: #8B5CF6;
+    text-decoration: underline;
+}
+
+.comment-count-badge {
+    color: #C2447A;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.page-btn {
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    border: 1px solid #EDE0E5;
+    border-radius: 6px;
+    background-color: #fff;
+    color: var(--stone);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    background-color: #FBF6EF;
+}
+
+.page-btn.active {
+    background-color: #8B5CF6;
+    border-color: #8B5CF6;
+    color: #fff;
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* ==========================================================================
+   글쓰기 / 수정 (board-write.html)
+   ========================================================================== */
+.image-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.preview-img {
+    width: 140px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #EDE0E5;
+}
+
+/* ==========================================================================
+   상세보기 (board-detail.html)
+   ========================================================================== */
+.post-detail {
+    border-bottom: 1px solid #EDE0E5;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.post-detail-header {
+    border-bottom: 1px solid #EDE0E5;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-title {
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 14px;
+    color: var(--stone);
+}
+
+.post-image {
+    margin-bottom: 1.5rem;
+}
+
+.post-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #EDE0E5;
+}
+
+.post-content {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink);
+    min-height: 120px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* 댓글 */
+.comment-section h3 {
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+.comment-count {
+    color: #8B5CF6;
+}
+
+.comment-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.comment-item {
+    border-bottom: 1px solid #EDE0E5;
+    padding: 1rem 0;
+}
+
+.comment-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+.comment-author {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.comment-date {
+    color: var(--stone);
+}
+
+.comment-content {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #EDE0E5;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #8B5CF6;
+}
+
+.comment-form .btn {
+    align-self: flex-end;
+}
+
+/* ==========================================================================
+   로그인 / 회원가입 (login.html, signup.html)
+   ========================================================================== */
+.auth-switch {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 15px;
+    color: var(--stone);
+}
+
+.auth-switch a {
+    color: #8B5CF6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}

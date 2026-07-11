@@ -1,0 +1,17 @@
+1단계 — Git for Windows 설치(https://git-scm.com/download/win)
+
+2단계 — PowerShell에서 설치 명령 실행
+irm https://claude.ai/install.ps1 | iex
+claude --version으로 확인
+
+3단계 — 로그인
+claude
+
+-------------------
+경로오류 발생시 
+--------------------
+[Environment]::SetEnvironmentVariable(
+  "PATH",
+  "$env:PATH;$env:USERPROFILE\.local\bin",
+  [EnvironmentVariableTarget]::User
+)

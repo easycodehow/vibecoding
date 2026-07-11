@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 | 바이브코딩</title>
+    <link href="../font/Galmuri-v2.40.3/galmuri.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/board.css">
+</head>
+<body>
+    <header class="header-solid">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">VIBECODING</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#intro">소개</a></li>
+                <li><a href="../index.html#feature">특징</a></li>
+                <li><a href="../index.html#effect">기대효과</a></li>
+                <li><a href="../index.html#limitation">한계점</a></li>
+                <li><a href="board.html" class="active">커뮤니티</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="board-main">
+        <div class="board-container">
+            <h2>커뮤니티</h2>
+
+            <div class="board-toolbar">
+                <form class="search-form">
+                    <input type="text" class="search-input" placeholder="제목을 검색하세요">
+                    <button type="submit" class="btn btn-secondary">검색</button>
+                </form>
+                <a href="board-write.html" class="btn btn-primary">글쓰기</a>
+            </div>
+
+            <div class="table-wrap">
+                <table class="board-table">
+                    <thead>
+                        <tr>
+                            <th class="col-no">번호</th>
+                            <th class="col-title">제목</th>
+                            <th class="col-author">작성자</th>
+                            <th class="col-date">작성일</th>
+                            <th class="col-views">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 더미 게시글 (레이아웃 확인용) -->
+                        <tr>
+                            <td>5</td>
+                            <td class="col-title"><a href="board-detail.html?id=5">바이브코딩 시작할 때 유용했던 팁 공유합니다</a></td>
+                            <td>coder_kim</td>
+                            <td>2026.07.10</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="col-title"><a href="board-detail.html?id=4">Claude Code로 만든 첫 프로젝트 후기</a></td>
+                            <td>vibe_master</td>
+                            <td>2026.07.09</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="col-title"><a href="board-detail.html?id=3">Supabase RLS 설정하다가 막혔어요, 도와주세요</a></td>
+                            <td>newbie_dev</td>
+                            <td>2026.07.08</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="col-title"><a href="board-detail.html?id=2">이 정도면 실무에서도 써볼만 할까요?</a></td>
+                            <td>frontend_lee</td>
+                            <td>2026.07.07</td>
+                            <td>52</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="col-title"><a href="board-detail.html?id=1">환영합니다! 커뮤니티 이용 안내</a></td>
+                            <td>admin</td>
+                            <td>2026.07.05</td>
+                            <td>102</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <nav class="pagination" aria-label="페이지 네비게이션">
+                <button type="button" class="page-btn" disabled>이전</button>
+                <button type="button" class="page-btn active">1</button>
+                <button type="button" class="page-btn">2</button>
+                <button type="button" class="page-btn">3</button>
+                <button type="button" class="page-btn">4</button>
+                <button type="button" class="page-btn">5</button>
+                <button type="button" class="page-btn">다음</button>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../index.html" class="footer-logo">VIBECODING</a>
+            <p class="footer-copyright">&copy; 2026 EASYCODE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/board.js"></script>
+</body>
+</html>
