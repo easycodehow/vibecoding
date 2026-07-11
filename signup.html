@@ -12,13 +12,19 @@
     <header class="header-solid">
         <nav class="navbar">
             <a href="index.html" class="logo">VIBECODING</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#intro">소개</a></li>
-                <li><a href="index.html#feature">특징</a></li>
-                <li><a href="index.html#effect">기대효과</a></li>
-                <li><a href="index.html#limitation">한계점</a></li>
-                <li><a href="board/board.html" class="active">커뮤니티</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html#intro">소개</a></li>
+                    <li><a href="index.html#feature">특징</a></li>
+                    <li><a href="index.html#effect">기대효과</a></li>
+                    <li><a href="index.html#limitation">한계점</a></li>
+                    <li><a href="board/board.html" class="active">커뮤니티</a></li>
+                </ul>
+                <div class="nav-auth" id="nav-auth">
+                    <a href="login.html" class="nav-auth-link">로그인</a>
+                    <a href="signup.html" class="nav-auth-link">회원가입</a>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -26,7 +32,7 @@
         <div class="board-container board-form-container narrow">
             <h2>회원가입</h2>
 
-            <form class="auth-form">
+            <form class="auth-form" id="signup-form">
                 <div class="form-group">
                     <label for="signup-email">이메일</label>
                     <input type="email" id="signup-email" placeholder="이메일을 입력하세요">
@@ -41,6 +47,8 @@
                     <label for="signup-password-confirm">비밀번호 확인</label>
                     <input type="password" id="signup-password-confirm" placeholder="비밀번호를 다시 입력하세요">
                 </div>
+
+                <p class="auth-message"></p>
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary btn-full">회원가입</button>
@@ -58,6 +66,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
 </body>
 </html>

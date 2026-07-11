@@ -95,6 +95,49 @@ header.scrolled .nav-menu li a:hover {
     color: #8B5CF6;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-auth-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-auth-link:hover {
+    color: #8B5CF6;
+}
+
+.nav-auth-email {
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.auth-message {
+    font-size: 14px;
+    color: #8B5CF6;
+    min-height: 1.2em;
+}
+
+.auth-message-error {
+    color: #C2447A;
+}
+
 .hero {
     background:
         linear-gradient(90deg, rgba(23, 18, 15, 0.8) 60%, rgba(23, 18, 15, 0.2)),

@@ -12,13 +12,19 @@
     <header class="header-solid">
         <nav class="navbar">
             <a href="../index.html" class="logo">VIBECODING</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html#intro">소개</a></li>
-                <li><a href="../index.html#feature">특징</a></li>
-                <li><a href="../index.html#effect">기대효과</a></li>
-                <li><a href="../index.html#limitation">한계점</a></li>
-                <li><a href="board.html" class="active">커뮤니티</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="../index.html#intro">소개</a></li>
+                    <li><a href="../index.html#feature">특징</a></li>
+                    <li><a href="../index.html#effect">기대효과</a></li>
+                    <li><a href="../index.html#limitation">한계점</a></li>
+                    <li><a href="board.html" class="active">커뮤니티</a></li>
+                </ul>
+                <div class="nav-auth" id="nav-auth">
+                    <a href="../login.html" class="nav-auth-link">로그인</a>
+                    <a href="../signup.html" class="nav-auth-link">회원가입</a>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -148,6 +154,9 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/auth.js"></script>
     <script src="js/board.js"></script>
 </body>
 </html>

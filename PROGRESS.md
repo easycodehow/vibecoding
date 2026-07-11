@@ -96,3 +96,23 @@
 
 ### 다음 작업 제안
 - 3단계: 로그인 기능 구현 (Supabase 이메일 로그인/회원가입, 로그인 상태 관리, 헤더 로그인/로그아웃 UI, `js/supabase-config.js` 생성)
+
+---
+
+## 2026-07-11 (3단계 - 로그인 기능 구현 완료)
+- `js/supabase-config.js` 신규 생성: `.env.local`의 Project URL/anon key로 Supabase 클라이언트(`supabaseClient`) 초기화
+- `js/auth.js` 구현
+  - 로그인 폼 제출 → `signInWithPassword`, 실패 시 `.auth-message`에 에러 표시, 성공 시 리다이렉트
+  - 회원가입 폼 제출 → 비밀번호 확인 일치 검증 후 `signUp`, 성공/실패 메시지 표시
+  - 로그아웃 버튼 → `signOut` 후 새로고침
+  - 페이지 로드 시 `getSession()`으로 로그인 여부 확인해 헤더 `#nav-auth` 영역을 로그인/비로그인 상태에 맞게 갱신
+- 전체 페이지(index.html, board.html, board-detail.html, board-write.html, login.html, signup.html) 헤더에 `nav-right`(nav-menu + nav-auth) 구조 추가, Supabase CDN 스크립트 + `supabase-config.js` + `auth.js` 연결
+- `login.html`/`signup.html` 폼에 `id`(`login-form`/`signup-form`) 부여, 결과 메시지 영역(`.auth-message`) 추가
+- `css/style.css`에 `.nav-right`, `.nav-auth`, `.nav-auth-link`, `.nav-auth-email`, `.auth-message` 스타일 추가
+- 사용자가 브라우저에서 실제 로그인 동작 확인 완료 (로그인 성공)
+- 참고: 이 개발 환경에는 로컬 서버/브라우저 자동화 도구가 없어 클로드코드가 직접 클릭 테스트는 하지 못함 (정적 파일이라 브라우저로 직접 열어 테스트 가능했음)
+- 아직 커밋/푸시는 하지 않은 상태 (작업 트리에 변경사항 남아있음)
+
+### 다음 작업 제안
+- 이번 3단계 변경사항 커밋/푸시 여부 확인
+- 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
