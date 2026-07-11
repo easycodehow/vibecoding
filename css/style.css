@@ -382,9 +382,7 @@ section .card-grid + h3 {
 
 .table-wrap {
     overflow-x: auto;
-    border: 1px solid #EDE0E5;
     border-radius: 12px;
-    background-color: #fff;
 }
 
 .compare-table {
@@ -449,35 +447,66 @@ section .card-grid + h3 {
 /* ==========================================================================
    커뮤니티 - 최근 게시물
    ========================================================================== */
-.recent-post-card {
-    display: block;
-    text-decoration: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.recent-post-card:hover {
-    border-color: #8B5CF6;
-    box-shadow: 0 4px 14px rgba(36, 30, 26, 0.06);
-}
-
-.recent-post-card h4 {
-    text-align: left;
-    color: var(--ink);
-}
-
-.recent-post-meta {
+.section-title-row {
     display: flex;
-    gap: 0.75rem;
-    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.section-title-row h2 {
+    margin-bottom: 0;
+}
+
+.recent-post-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+.recent-post-table thead th {
+    border-bottom: 2px solid #2D1B4E;
+    padding: 0.9rem 0.75rem;
+    text-align: center;
+    color: #2D1B4E;
+    font-weight: 700;
+}
+
+.recent-post-table tbody td {
+    border-bottom: 1px solid #EDE0E5;
+    padding: 0.9rem 0.75rem;
+    text-align: center;
     color: var(--stone);
+}
+
+.recent-post-table tbody tr:hover {
+    background-color: #FBF6EF;
+}
+
+.recent-post-table .col-title {
+    text-align: center;
+}
+
+.recent-post-table td.col-title {
+    text-align: left;
+}
+
+.recent-post-table td.col-title a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.recent-post-table td.col-title a:hover {
+    color: #8B5CF6;
+    text-decoration: underline;
 }
 
 .community-more-link {
     display: inline-block;
-    margin-top: 1.5rem;
     color: #8B5CF6;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .community-more-link:hover {

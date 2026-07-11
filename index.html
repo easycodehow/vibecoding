@@ -16,7 +16,7 @@
                 <li><a href="#feature">특징</a></li>
                 <li><a href="#effect">기대효과</a></li>
                 <li><a href="#limitation">한계점</a></li>
-                <li><a href="#community">커뮤니티</a></li>
+                <li><a href="board/board.html">커뮤니티</a></li>
             </ul>
         </nav>
     </header>
@@ -203,34 +203,36 @@
         </section>
 
         <section id="community">
-            <h2>커뮤니티</h2>
-
-            <div class="card-grid recent-post-grid">
-                <!-- 더미 게시글 (레이아웃 확인용, 실제 데이터 연동은 5단계에서 진행) -->
-                <a href="board/board-detail.html?id=5" class="card recent-post-card">
-                    <h4>바이브코딩 시작할 때 유용했던 팁 공유합니다</h4>
-                    <div class="recent-post-meta">
-                        <span>coder_kim</span>
-                        <span>2026.07.10</span>
-                    </div>
-                </a>
-                <a href="board/board-detail.html?id=4" class="card recent-post-card">
-                    <h4>Claude Code로 만든 첫 프로젝트 후기</h4>
-                    <div class="recent-post-meta">
-                        <span>vibe_master</span>
-                        <span>2026.07.09</span>
-                    </div>
-                </a>
-                <a href="board/board-detail.html?id=3" class="card recent-post-card">
-                    <h4>Supabase RLS 설정하다가 막혔어요, 도와주세요</h4>
-                    <div class="recent-post-meta">
-                        <span>newbie_dev</span>
-                        <span>2026.07.08</span>
-                    </div>
-                </a>
+            <div class="section-title-row">
+                <h2>커뮤니티</h2>
+                <a href="board/board.html" class="community-more-link">커뮤니티 더보기 →</a>
             </div>
 
-            <a href="board/board.html" class="community-more-link">커뮤니티 더보기 →</a>
+            <div class="table-wrap">
+                <!-- 더미 게시글 (레이아웃 확인용, 실제 데이터 연동은 5단계에서 진행) -->
+                <table class="recent-post-table">
+                    <thead>
+                        <tr>
+                            <th class="col-title">제목</th>
+                            <th class="col-date">작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-title"><a href="board/board-detail.html?id=5">바이브코딩 시작할 때 유용했던 팁 공유합니다</a></td>
+                            <td>2026.07.10</td>
+                        </tr>
+                        <tr>
+                            <td class="col-title"><a href="board/board-detail.html?id=4">Claude Code로 만든 첫 프로젝트 후기</a></td>
+                            <td>2026.07.09</td>
+                        </tr>
+                        <tr>
+                            <td class="col-title"><a href="board/board-detail.html?id=3">Supabase RLS 설정하다가 막혔어요, 도와주세요</a></td>
+                            <td>2026.07.08</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 

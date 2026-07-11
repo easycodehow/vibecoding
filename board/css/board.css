@@ -6,10 +6,10 @@
 
 /* 헤더 (hero 없는 페이지용 고정 배경) */
 .header-solid {
-    background-color: #2D1B4E;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(45, 27, 78, 0.35);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-bottom: 1px solid rgba(45, 27, 78, 0.4);
 }
 
 .header-solid .nav-menu li a.active {
@@ -188,12 +188,12 @@
     display: flex;
     gap: 0.5rem;
     flex: 1;
-    max-width: 320px;
+    max-width: 480px;
 }
 
 .search-input {
     flex: 1;
-    padding: 0.65rem 1rem;
+    padding: 0.5rem 1rem;
     border: 1px solid #EDE0E5;
     border-radius: 8px;
     font-size: 16px;
@@ -205,17 +205,22 @@
     border-color: #8B5CF6;
 }
 
+.search-form .btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 .board-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .board-table thead th {
     border-bottom: 2px solid #2D1B4E;
     padding: 0.9rem 0.75rem;
     text-align: center;
-    color: var(--ink);
+    color: #2D1B4E;
     font-weight: 700;
 }
 
@@ -231,7 +236,7 @@
 }
 
 .board-table .col-title {
-    text-align: left;
+    text-align: center;
 }
 
 .board-table td.col-title {
@@ -252,6 +257,13 @@
     color: #C2447A;
     font-size: 14px;
     margin-left: 4px;
+}
+
+.post-image-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 4px;
+    vertical-align: middle;
 }
 
 /* 페이지네이션 */
@@ -279,9 +291,11 @@
 }
 
 .page-btn.active {
-    background-color: #8B5CF6;
-    border-color: #8B5CF6;
-    color: #fff;
+    background-color: #fff;
+    border-color: #2D1B4E;
+    border-width: 2px;
+    color: var(--ink);
+    font-weight: 700;
 }
 
 .page-btn:disabled {
