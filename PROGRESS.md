@@ -163,3 +163,22 @@
 - posts 테이블 생성 SQL + RLS 정책 4종 (SELECT 전체공개 / INSERT 로그인만 / UPDATE 본인만 / DELETE 본인+관리자)
 - comments 테이블 생성 SQL + RLS 정책 4종
 - Storage 버킷(post-images) 설정
+
+---
+
+## 2026-07-12 (4단계 - posts/comments 테이블 설정 완료, 세션 중단)
+- `posts` 테이블 생성 SQL 제공 및 사용자가 Supabase 대시보드에서 실행 완료
+  - `id`(bigint identity, 글번호 자동생성), `title`, `content`, `author_id`(uuid, auth.users 참조), `author_email`(표시용), `image_url`(nullable), `view_count`(기본 0), `created_at`
+  - RLS 활성화 + 정책 4종: SELECT 전체공개 / INSERT 로그인만(본인 명의) / UPDATE 본인만 / DELETE 본인 또는 profiles.role='admin'
+  - 참고 사항 공유: 조회수 증가는 "본인 글만 수정" UPDATE 정책과 충돌하므로, 5단계 실제 구현 시 `security definer` RPC 함수로 조회수만 별도 증가시킬 예정
+- `comments` 테이블 생성 SQL 제공 및 실행 완료
+  - `id`, `post_id`(posts 참조, on delete cascade), `author_id`, `author_email`, `content`, `created_at`
+  - RLS 활성화 + 정책 4종: SELECT 전체공개 / INSERT 로그인만(본인 명의) / UPDATE 본인만 / DELETE 본인만 (관리자 삭제 권한은 요구사항에 없어 미포함)
+- 사용자가 대시보드에서 posts/comments SQL 모두 실행 성공 확인
+- CLAUDE.md의 posts/comments 테이블 체크리스트 전체 체크 완료 (Storage 설정만 미완료로 남음)
+- 사용자가 세션을 중단하고 다음에 이어서 작업할 예정
+
+### 다음 작업 제안
+- 4단계 마지막 항목: Storage 설정 (post-images 버킷 생성, image/* 타입 제한, 4종 보안정책 — SELECT 전체공개 / INSERT 로그인만 / DELETE·UPDATE 본인만)
+- Storage까지 끝나면 4단계 전체 완료, 5단계(게시판 기본 CRUD 구현)로 진행
+- 참고: posts.view_count 증가용 security definer RPC 함수는 아직 안 만듦 (5단계에서 조회수 로직 구현 시 함께 처리)
