@@ -132,3 +132,16 @@
 
 ### 다음 작업 제안
 - 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
+
+---
+
+## 2026-07-12 (글쓰기 임시 로그인 가드 추가)
+- 비로그인 상태에서 글쓰기 버튼을 눌러도 `board-write.html`로 이동되던 문제 확인 (아직 4~5단계 DB/CRUD/RLS 미구현이라 원래 예정된 동작이었음)
+- 정식 CRUD/RLS 구현 전까지 임시로 프론트엔드 로그인 가드 추가
+  - `board/board.html`의 글쓰기 링크에 `id="write-btn"` 부여
+  - `board/js/board.js`에 `guardWriteButton()`(비로그인 시 목록 페이지 글쓰기 버튼 숨김), `guardWritePage()`(비로그인 상태로 `board-write.html` 직접 접근 시 `../login.html`로 리다이렉트) 추가
+- 사용자가 브라우저에서 로그인/로그아웃 두 상태 모두 확인 완료
+- git 커밋 완료
+
+### 다음 작업 제안
+- 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
