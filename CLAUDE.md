@@ -75,6 +75,13 @@
 - 비로그인 사용자: 읽기만 가능
 - 로그인 사용자: 글쓰기 가능, 본인 글/댓글만 수정·삭제 가능
 - 관리자: `profiles` 테이블에 `role` 컬럼을 추가해 지정. 관리자는 모든 게시글 삭제 가능 (회원 관리 기능은 없음)
+  - 별도 관리자 지정 화면이 없으므로, 관리자를 지정/해제할 때마다 Supabase SQL Editor에서 아래 SQL을 수동으로 실행해야 함
+    ```sql
+    update public.profiles
+    set role = 'admin'
+    where id = (select id from auth.users where email = '관리자로_지정할_이메일@example.com');
+    ```
+    해제할 때는 `role = 'user'`로 변경해서 동일하게 실행
 - 로그인 세션은 브라우저(탭/창)를 닫으면 유지되지 않음 (새로고침이나 페이지 이동 중에는 유지, 브라우저를 완전히 닫았다 다시 열면 로그아웃 상태)
 
 ### 기술 스택
