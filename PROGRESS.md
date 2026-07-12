@@ -145,3 +145,21 @@
 
 ### 다음 작업 제안
 - 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
+
+---
+
+## 2026-07-12 (4단계 - profiles 테이블 설정 완료)
+- 간편로그인(구글/카카오/네이버) 관련 논의 있었으나 이 프로젝트에서는 진행하지 않기로 결정
+- `profiles` 테이블 생성 SQL 제공 및 사용자가 Supabase 대시보드에서 실행 완료
+  - `id uuid primary key references auth.users(id) on delete cascade`, `role text default 'user' check (role in ('user','admin'))`, `created_at timestamptz default now()`
+  - 테이블 생성 시 Supabase가 "RLS 미설정" 경고를 띄워 "Run and enable RLS"로 RLS 활성화 상태로 생성
+- RLS 정책 추가: 본인 프로필만 조회 가능한 SELECT 정책 (`auth.uid() = id`)
+- 신규 가입 시 profiles row 자동 생성 트리거 추가
+  - `public.handle_new_user()` 함수(`security definer`) + `auth.users` INSERT 후 실행되는 `on_auth_user_created` 트리거
+- 사용자가 대시보드에서 SQL 3종(테이블/RLS 정책/트리거) 모두 실행 성공 확인
+- CLAUDE.md의 profiles 테이블 체크리스트 3항목 모두 체크 완료
+
+### 다음 작업 제안
+- posts 테이블 생성 SQL + RLS 정책 4종 (SELECT 전체공개 / INSERT 로그인만 / UPDATE 본인만 / DELETE 본인+관리자)
+- comments 테이블 생성 SQL + RLS 정책 4종
+- Storage 버킷(post-images) 설정
