@@ -37,7 +37,7 @@
         <div class="board-container board-form-container">
             <h2>글쓰기</h2>
 
-            <form class="post-form">
+            <form class="post-form" id="post-form">
                 <div class="form-group">
                     <label for="post-title">제목</label>
                     <input type="text" id="post-title" placeholder="제목을 입력하세요">
@@ -51,15 +51,15 @@
                 <div class="form-group">
                     <label for="post-image">이미지 첨부 (선택, 1개만 가능)</label>
                     <input type="file" id="post-image" accept="image/*">
-                    <div class="image-preview">
-                        <img src="../img/hero.jpg" alt="이미지 미리보기" class="preview-img">
-                        <button type="button" class="btn btn-outline">이미지 삭제</button>
+                    <div class="image-preview" id="image-preview" hidden>
+                        <img src="" alt="이미지 미리보기" class="preview-img" id="preview-img">
+                        <button type="button" class="btn btn-outline" id="remove-image-btn">이미지 삭제</button>
                     </div>
                 </div>
 
                 <div class="form-actions">
                     <a href="board.html" class="btn btn-secondary">취소</a>
-                    <button type="submit" class="btn btn-primary">등록</button>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">등록</button>
                 </div>
             </form>
         </div>

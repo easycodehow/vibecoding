@@ -219,7 +219,6 @@
             </div>
 
             <div class="table-wrap">
-                <!-- 더미 게시글 (레이아웃 확인용, 실제 데이터 연동은 5단계에서 진행) -->
                 <table class="recent-post-table">
                     <thead>
                         <tr>
@@ -227,19 +226,8 @@
                             <th class="col-date">작성일</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-title"><a href="board/board-detail.html?id=5">바이브코딩 시작할 때 유용했던 팁 공유합니다</a></td>
-                            <td>2026.07.10</td>
-                        </tr>
-                        <tr>
-                            <td class="col-title"><a href="board/board-detail.html?id=4">Claude Code로 만든 첫 프로젝트 후기</a></td>
-                            <td>2026.07.09</td>
-                        </tr>
-                        <tr>
-                            <td class="col-title"><a href="board/board-detail.html?id=3">Supabase RLS 설정하다가 막혔어요, 도와주세요</a></td>
-                            <td>2026.07.08</td>
-                        </tr>
+                    <tbody id="recent-post-body">
+                        <tr><td colspan="2">불러오는 중...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -257,5 +245,6 @@
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
+    <script src="board/js/board.js"></script>
 </body>
 </html>

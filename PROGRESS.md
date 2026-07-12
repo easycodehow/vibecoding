@@ -182,3 +182,47 @@
 - 4단계 마지막 항목: Storage 설정 (post-images 버킷 생성, image/* 타입 제한, 4종 보안정책 — SELECT 전체공개 / INSERT 로그인만 / DELETE·UPDATE 본인만)
 - Storage까지 끝나면 4단계 전체 완료, 5단계(게시판 기본 CRUD 구현)로 진행
 - 참고: posts.view_count 증가용 security definer RPC 함수는 아직 안 만듦 (5단계에서 조회수 로직 구현 시 함께 처리)
+
+---
+
+## 2026-07-12 (4단계 - Storage 설정 완료, 4단계 전체 완료)
+- `post-images` 버킷 생성 완료 (사용자 수동 작업, Public 버킷, Allowed MIME types: image/*)
+- Storage 보안정책 SQL 제공 및 사용자가 SQL Editor에서 실행 완료
+  - SELECT: 누구나 조회 가능 / INSERT: 로그인 사용자만 / UPDATE·DELETE: 본인 이미지만 (owner = auth.uid())
+  - 과정에서 SQL Editor에 이전 쿼리 구문이 남아있어 syntax error 발생 → 새로 복사해서 재실행 후 해결
+- Supabase가 "Clients can list all files in this bucket" 경고 표시 (Public 버킷에 별도 SELECT 정책이 있으면 storage.objects 목록 조회까지 열리는 문제) → 이 프로젝트는 개별 이미지 URL 조회만 필요하고 목록 열람은 불필요하다고 판단해 SELECT 정책 제거(Remove policy), Public 버킷 자체의 URL 조회 기능으로 대체
+- 최종 정책 구성: INSERT(authenticated)/UPDATE(authenticated, 본인만)/DELETE(authenticated, 본인만) 3개 + Public 버킷의 기본 URL 조회
+- CLAUDE.md 4단계 체크리스트 전체(profiles/posts/comments 테이블 + RLS + Storage) 완료
+
+### 다음 작업 제안
+- 5단계: 게시판 기본 CRUD 구현 (board.html/board-write.html/board-detail.html의 더미 데이터를 실제 Supabase 데이터로 교체)
+  - 게시글 목록 조회, 작성, 상세보기+조회수 증가, 수정, 삭제
+  - index.html 최근 게시물 섹션도 실제 데이터로 교체
+- 참고: posts.view_count 증가는 본인 글만 수정 가능한 UPDATE 정책과 충돌하므로 security definer RPC 함수로 별도 처리 필요 (5단계에서 함께 구현)
+
+---
+
+## 2026-07-12 (5단계 - 게시판 CRUD 전체 구현 완료, 6~9단계까지 함께 완료)
+- `board/js/board.js`에 게시판 전체 기능 구현 (더미 데이터를 실제 Supabase 데이터로 교체)
+  - 목록(board.html): 실제 게시글 목록 조회, 댓글 수 배지, 이미지 첨부 아이콘, 제목 검색(`ilike`), 페이지네이션(10개씩, 5페이지 단위 그룹)
+  - 글쓰기(board-write.html): `?id=` 유무로 작성/수정 모드 분기, 본인 글만 수정 가능하도록 author_id 체크, 이미지 업로드+미리보기(FileReader), 이미지 교체/삭제 시 기존 스토리지 파일 정리
+  - 상세보기(board-detail.html): 게시글 조회, 조회수 증가, 본인 글이면 수정/삭제 버튼 노출(관리자는 삭제 버튼 추가 노출), 댓글 목록/작성/인라인 수정/삭제(본인만)
+  - index.html: 최근 게시물 3개를 실제 데이터로 교체
+  - 작성자 표시는 이메일 전체가 아닌 `@` 앞부분만 노출(기존 nav-auth 표시 방식과 통일, 개인정보 노출 최소화)
+- 조회수 증가용 RPC 함수(`increment_view_count`, security definer) SQL 제공 및 사용자가 실행 완료 — 본인 글만 수정 가능한 UPDATE 정책을 우회해 조회수만 증가
+- **버그 수정 1**: `board-detail.html`의 게시글 제목 영역에 시맨틱하게 사용한 `<header class="post-detail-header">` 태그가, `css/style.css`의 태그 이름 기반 선택자 `header { position: fixed; top:0; ... }`와 충돌 — 게시글 제목/작성자/조회수가 사이트 상단 고정 헤더와 겹쳐서 화면 맨 위에 렌더링되는 버그 발생
+  - 진단 과정: 스크린샷만으로는 원인 특정이 안 되어 사용자에게 DevTools Elements 트리, Console 에러, `getComputedStyle`/`getBoundingClientRect()` 값을 직접 확인받아 `.post-title`의 `getBoundingClientRect().top`이 0(정상은 135px)임을 확인 → 원인 특정
+  - 수정: `style.css`의 `header {...}` / `header.scrolled {...}` 선택자를 `body > header {...}` / `body > header.scrolled {...}`로 변경해 body 직계 자식인 사이트 헤더만 고정되도록 범위 축소 (다른 페이지는 중첩 `<header>`가 없어 이 버그의 영향을 받지 않았음, board-detail.html만 해당)
+- **버그 수정 2**: board-detail.html의 정적 "게시글 상세" h2 제목 제거 (실제 게시글 제목이 바로 아래 표시되어 중복이었음, 사용자 요청)
+- **기능 추가**: 로그인 세션 지속 방식 변경 — 기존엔 Supabase 기본값(localStorage)이라 브라우저를 완전히 껐다 켜도 로그인이 유지되는 것을 사용자가 확인하고, "브라우저를 닫으면 로그아웃되게" 요구사항을 CLAUDE.md 로그인/권한 섹션에 추가한 뒤 구현
+  - `js/supabase-config.js`의 `createClient` 옵션에 `auth: { storage: window.sessionStorage }` 추가
+  - localStorage 대신 sessionStorage 사용 → 같은 탭에서 새로고침/페이지 이동 시에는 로그인 유지, 탭/브라우저를 닫으면 로그아웃
+  - 사용자가 브라우저에서 테스트 후 정상 동작 확인
+- CLAUDE.md 5~9단계 체크리스트 전체 완료 처리 (6단계 이미지 업로드, 7단계 검색/페이지네이션, 8단계 댓글, 9단계 관리자 권한이 5단계 구현에 모두 포함되어 함께 완료됨)
+- 참고: 콘솔에 `profiles` 테이블 조회 시 406 에러가 한 번 관찰됨 — profiles 트리거 추가 이전에 가입한 계정이라 profiles row가 없어서 발생하는 것으로 추정(관리자 여부 체크만 조용히 실패, 페이지 동작에는 지장 없음), 근본 수정은 아직 안 함
+- 아직 커밋/푸시는 하지 않은 상태
+
+### 다음 작업 제안
+- 이번 세션 변경사항(board 전체 구현 + header 버그 수정 + 세션 정책 변경) 커밋/푸시 여부 확인
+- CLAUDE.md 체크리스트 기준으로는 게시판 기능(1~9단계)이 전부 완료된 상태 — 전체 기능을 한 번 더 브라우저에서 쭉 훑어보며 회귀 테스트 권장 (특히 이미지 업로드/삭제, 관리자 계정으로 타인 글 삭제, 댓글 수정)
+- profiles 406 에러 원인(트리거 이전 가입 계정에 row 없음) 정리할지 결정 — 필요하면 기존 유저용 profiles row를 채워주는 1회성 SQL 제공 가능

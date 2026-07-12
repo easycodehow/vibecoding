@@ -4,6 +4,12 @@
    - hero가 없는 페이지이므로 헤더는 투명 대신 고정 배경을 사용
    ========================================================================== */
 
+/* JS에서 hidden 속성으로 요소를 숨길 때, display를 지정하는 다른 규칙(.btn, .image-preview 등)보다
+   우선 적용되도록 함 */
+[hidden] {
+    display: none !important;
+}
+
 /* 헤더 (hero 없는 페이지용 고정 배경) */
 .header-solid {
     background-color: rgba(45, 27, 78, 0.35);
@@ -337,7 +343,7 @@
 }
 
 .post-title {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--ink);
     margin-bottom: 0.75rem;
 }
@@ -355,12 +361,14 @@
 
 .post-image img {
     max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid #EDE0E5;
 }
 
 .post-content {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.8;
     color: var(--ink);
     min-height: 120px;

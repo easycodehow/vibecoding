@@ -34,65 +34,36 @@
 
     <main class="board-main">
         <div class="board-container">
-            <h2>게시글 상세</h2>
-
-            <!-- 더미 게시글 (레이아웃 확인용) -->
-            <article class="post-detail">
+            <article class="post-detail" id="post-detail">
                 <header class="post-detail-header">
-                    <h3 class="post-title">바이브코딩 시작할 때 유용했던 팁 공유합니다</h3>
+                    <h3 class="post-title" id="post-title"></h3>
                     <div class="post-meta">
-                        <span class="post-author">coder_kim</span>
-                        <span class="post-date">2026.07.10</span>
-                        <span class="post-views">조회수 23</span>
+                        <span class="post-author" id="post-author"></span>
+                        <span class="post-date" id="post-date"></span>
+                        <span class="post-views" id="post-views"></span>
                     </div>
                 </header>
 
-                <div class="post-image">
-                    <img src="../img/hero.jpg" alt="첨부 이미지">
+                <div class="post-image" id="post-image-wrap" hidden>
+                    <img src="" alt="첨부 이미지" id="post-image-el">
                 </div>
 
-                <div class="post-content">
-                    <p>더미 본문 내용입니다. 실제 데이터 연동 전 레이아웃 확인용 텍스트입니다.</p>
-                </div>
+                <div class="post-content" id="post-content"></div>
 
-                <div class="post-actions">
-                    <a href="board-write.html?id=5" class="btn btn-secondary">수정</a>
-                    <button type="button" class="btn btn-danger">삭제</button>
+                <div class="post-actions" id="post-actions">
+                    <a href="#" class="btn btn-secondary" id="edit-link" hidden>수정</a>
+                    <button type="button" class="btn btn-danger" id="delete-btn" hidden>삭제</button>
                     <a href="board.html" class="btn btn-outline">목록으로</a>
                 </div>
             </article>
 
             <section class="comment-section">
-                <h3>댓글 <span class="comment-count">2</span></h3>
+                <h3>댓글 <span class="comment-count" id="comment-count">0</span></h3>
 
-                <ul class="comment-list">
-                    <!-- 더미 댓글 (레이아웃 확인용) -->
-                    <li class="comment-item">
-                        <div class="comment-meta">
-                            <span class="comment-author">vibecoder</span>
-                            <span class="comment-date">2026.07.10</span>
-                        </div>
-                        <p class="comment-content">좋은 정보 감사합니다!</p>
-                        <div class="comment-actions">
-                            <button type="button" class="btn-text">수정</button>
-                            <button type="button" class="btn-text">삭제</button>
-                        </div>
-                    </li>
-                    <li class="comment-item">
-                        <div class="comment-meta">
-                            <span class="comment-author">newbie_dev</span>
-                            <span class="comment-date">2026.07.10</span>
-                        </div>
-                        <p class="comment-content">저도 시작해보려고요, 감사합니다.</p>
-                        <div class="comment-actions">
-                            <button type="button" class="btn-text">수정</button>
-                            <button type="button" class="btn-text">삭제</button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="comment-list" id="comment-list"></ul>
 
-                <form class="comment-form">
-                    <textarea rows="3" placeholder="댓글을 입력하세요"></textarea>
+                <form class="comment-form" id="comment-form">
+                    <textarea rows="3" placeholder="댓글을 입력하세요" id="comment-input"></textarea>
                     <button type="submit" class="btn btn-primary">댓글 등록</button>
                 </form>
             </section>

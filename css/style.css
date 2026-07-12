@@ -27,7 +27,7 @@ body {
     color: var(--ink);
 }
 
-header {
+body > header {
     background-color: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(12px);
@@ -41,7 +41,7 @@ header {
     transition: background-color 0.3s ease;
 }
 
-header.scrolled {
+body > header.scrolled {
     background-color: rgba(45, 27, 78, 0.35);
     backdrop-filter: blur(7px);
     border-bottom: 1px solid rgba(45, 27, 78, 0.4);
