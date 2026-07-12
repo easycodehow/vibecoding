@@ -16,9 +16,12 @@ async function updateAuthUI() {
     const { data: { session } } = await supabaseClient.auth.getSession();
 
     if (session) {
+        const userId = session.user.email.split('@')[0];
         navAuth.innerHTML = `
-            <span class="nav-auth-email">${session.user.email}</span>
-            <button type="button" class="nav-auth-link nav-auth-logout" id="logout-btn">로그아웃</button>
+            <span class="nav-auth-email">${userId}</span>
+            <button type="button" class="nav-auth-link nav-auth-icon nav-auth-logout" id="logout-btn" title="로그아웃" aria-label="로그아웃">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </button>
         `;
         document.getElementById('logout-btn').addEventListener('click', handleLogout);
     }

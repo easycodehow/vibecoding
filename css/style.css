@@ -123,6 +123,16 @@ header.scrolled .nav-menu li a:hover {
     color: #8B5CF6;
 }
 
+.nav-auth-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-auth-icon svg {
+    display: block;
+}
+
 .nav-auth-email {
     color: #FFFFFF;
     font-size: 15px;

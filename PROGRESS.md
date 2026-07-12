@@ -116,3 +116,19 @@
 ### 다음 작업 제안
 - 이번 3단계 변경사항 커밋/푸시 여부 확인
 - 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
+
+---
+
+## 2026-07-12 (헤더 로그인/회원가입/로그아웃 아이콘화)
+- 6개 페이지(index.html, login.html, signup.html, board/board.html, board/board-write.html, board/board-detail.html) 헤더의 로그인/회원가입 텍스트 링크를 인라인 SVG 아이콘으로 교체
+  - 로그인: 사람(person) 아이콘, 회원가입: 사람+플러스(person-plus) 아이콘, `stroke="currentColor"`로 기존 흰색/보라(#8B5CF6) hover 색상 그대로 적용
+  - 접근성을 위해 각 아이콘 링크에 `title`/`aria-label` 부여
+  - `css/style.css`에 `.nav-auth-icon`(정렬) 스타일 추가
+- `js/auth.js`의 `updateAuthUI` 수정 (로그인 상태 UI)
+  - 이메일 전체 대신 `@` 앞 아이디만 표시 (`email.split('@')[0]`)
+  - "로그아웃" 텍스트 버튼 → 로그아웃(log-out) 아이콘 버튼으로 교체, `.nav-auth-icon` 스타일 재사용
+- 사용자가 브라우저에서 로그인 상태 포함 확인 완료
+- git 커밋 완료
+
+### 다음 작업 제안
+- 4단계: 데이터베이스 설정 (profiles/posts/comments 테이블 생성 SQL, RLS 정책, Storage 버킷 설정)
